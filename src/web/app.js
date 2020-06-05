@@ -22,7 +22,7 @@ if(SpeechRecognition) {
   function micBtnClick() {
     if(micIcon.classList.contains("fa-microphone")) { // Start Voice Recognition
       recognition.start();
-      apitest()
+      
        // First time you have to allow access to mic!
     }
     else {
@@ -51,6 +51,7 @@ if(SpeechRecognition) {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
     console.log(transcript)
+    backend(transcript)
     
     if(transcript.toLowerCase().trim()==="stop recording") {
       recognition.stop();
@@ -60,6 +61,7 @@ if(SpeechRecognition) {
     }
     else {
       if(transcript.toLowerCase().trim()==="go") {
+     
         searchForm.submit();
       }
       else if(transcript.toLowerCase().trim()==="reset input") {
@@ -84,24 +86,9 @@ else {
   info.textContent = "Your Browser does not support Speech Recognition";
 }
 
-const apitest=()=>{
-  const data ="hello";
 
-  fetch('http://127.0.0.1:5000/', {
-    method: 'POST',
-    mode:'no-cors', // or 'PUT'
-    headers: {
-      
-      'Content-Type': 'application/json',
-      
-    },
-    body:data,
-  })
-  // 
-  .then(data => {
-    console.log('Success:', data);
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
+const backend=(data)=>{
+  eel.main(data)(function(ret){console.log(ret)})
+ 
+  
 }
