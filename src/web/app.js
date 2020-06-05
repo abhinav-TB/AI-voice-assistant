@@ -21,7 +21,9 @@ if(SpeechRecognition) {
   micBtn.addEventListener("click", micBtnClick);
   function micBtnClick() {
     if(micIcon.classList.contains("fa-microphone")) { // Start Voice Recognition
-      recognition.start(); // First time you have to allow access to mic!
+      recognition.start();
+      apitest()
+       // First time you have to allow access to mic!
     }
     else {
       recognition.stop();
@@ -80,4 +82,26 @@ if(SpeechRecognition) {
 else {
   console.log("Your Browser does not support speech Recognition");
   info.textContent = "Your Browser does not support Speech Recognition";
+}
+
+const apitest=()=>{
+  const data ="hello";
+
+  fetch('http://127.0.0.1:5000/', {
+    method: 'POST',
+    mode:'no-cors', // or 'PUT'
+    headers: {
+      
+      'Content-Type': 'application/json',
+      
+    },
+    body:data,
+  })
+  // 
+  .then(data => {
+    console.log('Success:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
