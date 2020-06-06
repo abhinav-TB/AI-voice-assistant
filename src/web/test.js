@@ -9,7 +9,7 @@ if(SpeechRecognition) {
   console.log("Your Browser supports speech Recognition");
   
   const recognition = new SpeechRecognition();
-  recognition.continuous = true;
+//   recognition.continuous = true;
   // recognition.lang = "en-US";
 
   searchForm.insertAdjacentHTML("beforeend", '<button type="button"><i class="fas fa-microphone"></i></button>');
@@ -89,7 +89,9 @@ else {
 
 
 const backend=(data)=>{
-  eel.main(data)(function(ret){console.log(ret)})
- 
-  
+  eel.main(data)(function(ret){console.log(ret)}) 
 }
+
+const submit=()=>{
+    eel.main(searchFormInput)(function(ret){console.log(ret)}) 
+  }

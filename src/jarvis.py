@@ -226,4 +226,4 @@ def main(query):
 
 
 
-eel.start('index.html', size=(450, 600),debug=True)
+eel.start('index.html', size=(500, 600),debug=True)

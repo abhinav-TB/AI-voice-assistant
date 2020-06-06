@@ -92,6 +92,11 @@ const backend=(data)=>{
     console.log(ret)
   
   })
+const submit=()=>{
+  eel.main(searchFormInput)(function(ret){
+     console.log(ret)
+    
+    })
 
  
   
