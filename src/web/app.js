@@ -9,7 +9,7 @@ if(SpeechRecognition) {
   console.log("Your Browser supports speech Recognition");
   
   const recognition = new SpeechRecognition();
-  recognition.continuous = true;
+  // recognition.continuous = true;
   // recognition.lang = "en-US";
 
   searchForm.insertAdjacentHTML("beforeend", '<button type="button"><i class="fas fa-microphone"></i></button>');
@@ -52,8 +52,7 @@ if(SpeechRecognition) {
     const transcript = event.results[current][0].transcript;
     console.log(transcript)
     backend(transcript)
-    micIcon.classList.add("fa-microphone");
-    
+    console.log("test")
     if(transcript.toLowerCase().trim()==="stop recording") {
       recognition.stop();
     }
@@ -89,7 +88,11 @@ else {
 
 
 const backend=(data)=>{
-  eel.main(data)(function(ret){console.log(ret)})
+  eel.main(data)(function(ret){
+    console.log(ret)
+  
+  })
+
  
   
 }
