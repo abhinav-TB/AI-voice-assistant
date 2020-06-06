@@ -37,7 +37,7 @@ def date():
     speak(date)
     speak(month)
     speak(year)
-
+@eel.expose
 def wishme():
     # speak("welcome back sir")
     # time()
@@ -149,7 +149,7 @@ def main(query):
     # wishme()
     que=client.message(query)
     res=list(que['intents'])[0]['name']
-    intent=list(res['entities'])['wit$search_query:search_query'][0]["body"]
+    intent=que['entities']['wit$search_query:search_query'][0]["body"]
     print(res)
     print(intent) 
         
@@ -165,8 +165,8 @@ def main(query):
     elif 'wiki' in res:
 
          speak("Searching..")
-         query=query.replace("wikipedia","")
-         result=wikipedia.summary(query,sentences=2)
+        #  query=query.replace(intent)
+         result=wikipedia.summary(intent,sentences=2)
          print(result)
          speak(result)
     elif "email" in res  :
@@ -185,10 +185,10 @@ def main(query):
 
     elif  "chrome" in res:
     
-        speak("what should i search for")
+        # speak("what should i search for")
         chrome_path = 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
-        search =get_message().lower()
-        wb.get(chrome_path).open_new_tab(search+'.com')
+        # search =get_message().lower()
+        wb.get(chrome_path).open_new_tab(intent+'.com')
 
     elif "music" in res :
 

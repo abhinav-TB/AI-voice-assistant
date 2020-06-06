@@ -20,14 +20,12 @@ if(SpeechRecognition) {
 
   micBtn.addEventListener("click", micBtnClick);
   function micBtnClick() {
-    if(micIcon.classList.contains("fa-microphone")) { // Start Voice Recognition
+     // Start Voice Recognition
       recognition.start();
       
        // First time you have to allow access to mic!
-    }
-    else {
-      recognition.stop();
-    }
+    
+   
   }
 
   recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
@@ -52,7 +50,8 @@ if(SpeechRecognition) {
     const transcript = event.results[current][0].transcript;
     console.log(transcript)
     backend(transcript)
-    micIcon.classList.add("fa-microphone");
+   
+   
     
     if(transcript.toLowerCase().trim()==="stop recording") {
       recognition.stop();
@@ -70,6 +69,7 @@ if(SpeechRecognition) {
       }
       else {
         searchFormInput.value = transcript;
+        recognition.end()
       }
     }
     // searchFormInput.value = transcript;
