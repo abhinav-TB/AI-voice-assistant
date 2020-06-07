@@ -11,6 +11,7 @@ import os,sys
 import psutil
 from wit import Wit
 from playsound import playsound
+import pyjokes
 
 
 
@@ -221,7 +222,12 @@ def main(query):
         
     elif "cpu" in query:
         cpu()
-    
+    if "joke" in res:
+        joke=pyjokes.get_joke()
+        eel.showText(joke)
+        print(joke)
+        speak(joke)
+        
 
         
         

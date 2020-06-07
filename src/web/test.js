@@ -82,7 +82,7 @@ if(SpeechRecognition) {
     // }, 500);
   }
   
-  info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
+  info.textContent = 'Voice Commands: "what is the time","play a song" "send email"';
   
 }
 else {
