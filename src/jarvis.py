@@ -10,6 +10,9 @@ import webbrowser as wb
 import os,sys
 import psutil
 from wit import Wit
+from playsound import playsound
+
+
 
 client = Wit('H6MW36R46P6E6QQJTK3PJ36B2G5YSB6Q')
 engine=pyttsx3.init()
@@ -201,6 +204,7 @@ def main(query):
         songs_dir="C:/Users/abhin/OneDrive/Desktop/songs" 
         songs =os.listdir(songs_dir)
         os.startfile(os.path.join(songs_dir,songs[0]))
+        # playsound(os.path.join(songs_dir,songs[0]))
 
     elif "remember" in query:
 
