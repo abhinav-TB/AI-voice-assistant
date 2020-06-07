@@ -27,16 +27,21 @@ def speak(audio):
 def time():
     Time =datetime.datetime.now().strftime("%I:%M:%S")
     speak("the current time is")
-    speak(Time)
+    eel.showText("the current time is"+Time)
 
+    speak(Time)
 def date():
     year =int(datetime.datetime.now().year)
     month =int(datetime.datetime.now().month)
     date =int(datetime.datetime.now().day)
+    eel.showText(f"the current date is {date}-{month}-{year}")
     speak("the current date is")
     speak(date)
     speak(month)
     speak(year)
+    
+    
+
 @eel.expose
 def wishme():
     # speak("welcome back sir")
@@ -168,6 +173,7 @@ def main(query):
         #  query=query.replace(intent)
          result=wikipedia.summary(intent,sentences=2)
          print(result)
+         eel.showText(result)
          speak(result)
     elif "email" in res  :
 
@@ -226,4 +232,4 @@ def main(query):
 
 
 
-eel.start('index.html', size=(500, 600),debug=True)
+eel.start('index.html', size=(800, 600),debug=True)

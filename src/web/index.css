@@ -21,7 +21,7 @@ body {
   padding: 30px 50px;
 }
 #search-form {
-  width: 30%;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   color:white
@@ -52,14 +52,15 @@ body {
 .info {
   margin-top: 0.5rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
+  color:white;
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   #search-form { width: 50%; }
 }
 @media (max-width: 768px) {
   .container { padding: 30px 35px; }
   #search-form { width: 100%; }
   .info { font-size: 0.5rem; }
-}
+} */
