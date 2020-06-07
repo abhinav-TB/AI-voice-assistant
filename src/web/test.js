@@ -9,7 +9,7 @@ if(SpeechRecognition) {
   console.log("Your Browser supports speech Recognition");
   
   const recognition = new SpeechRecognition();
-//   recognition.continuous = true;
+  recognition.continuous = true;
   // recognition.lang = "en-US";
 
   searchForm.insertAdjacentHTML("beforeend", '<button type="button"><i class="fas fa-microphone"></i></button>');
@@ -20,8 +20,11 @@ if(SpeechRecognition) {
 
   micBtn.addEventListener("click", micBtnClick);
   function micBtnClick() {
+    if(micIcon.classList.contains("fa-microphone"))
      // Start Voice Recognition
       recognition.start();
+    else
+      recognition.stop()
       
        // First time you have to allow access to mic!
     
@@ -94,4 +97,10 @@ const backend=(data)=>{
 
 const submit=()=>{
     eel.main(searchFormInput)(function(ret){console.log(ret)}) 
+  }
+
+  eel.expose(showText);
+
+  function showText(text){
+     info.textContent=text
   }
