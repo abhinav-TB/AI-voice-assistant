@@ -156,7 +156,7 @@ def covid(country):
     latest = covid19.getLatest()
     print(latest)
     speak("there are" +str(latest["confirmed"])+" confirmed cases in the world")
-    speak("and" +str(latest["deaths"])+"are repoted so fars")
+    speak("and" +str(latest["deaths"])+"deaths are repoted so far")
 
 @eel.expose
 def main(query):
