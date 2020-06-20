@@ -12,6 +12,7 @@ import psutil
 from wit import Wit
 from playsound import playsound
 import pyjokes
+import COVID19Py
 
 
 
@@ -150,6 +151,12 @@ def get_message():
         return "None"
     return query
 
+def covid(country):
+    covid19 = COVID19Py.COVID19()
+    latest = covid19.getLatest()
+    print(latest)
+    speak("there are" +str(latest["confirmed"])+" confirmed cases in the world")
+    speak("and" +str(latest["deaths"])+"are repoted so fars")
 
 @eel.expose
 def main(query):
@@ -222,11 +229,14 @@ def main(query):
         
     elif "cpu" in query:
         cpu()
-    if "joke" in res:
+    elif "joke" in res:
         joke=pyjokes.get_joke()
         eel.showText(joke)
         print(joke)
         speak(joke)
+    elif "corona" in res:
+
+        covid(intent)
         
 
         
