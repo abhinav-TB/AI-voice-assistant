@@ -99,9 +99,11 @@ def sendEmail(content):
     port = 587  # For starttls
     
     speak("to whom should i send the message")
-    reciever_email = input("recievers email:")
-    sender_email="your email"
-    password = "your password"
+    reciever_email = 'abhinavtb@gmail.com'
+    # eel.getemail()
+    # eel.handleSubmit()
+    sender_email="kevinspencer344@gmail.com"
+    password = "abhinav123"
 
     # Create a secure SSL context
     context = ssl.create_default_context()
